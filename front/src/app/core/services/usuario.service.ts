@@ -52,7 +52,7 @@ private userData1: BehaviorSubject<{ name: string, lastName: string }> = new Beh
   }
 
   //* metodo para manejar errores
-/*   private handleError(error: HttpErrorResponse) {
+  private handleError(error: HttpErrorResponse) {
 
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.
@@ -69,7 +69,7 @@ private userData1: BehaviorSubject<{ name: string, lastName: string }> = new Beh
 
   get registroUsuario(): Observable<boolean> {
     return this.registrodeUsuario.asObservable();
-  } */
+  }
   
   setUserData(name: string, lastName: string) {
     this.userData1.next({ name, lastName });
