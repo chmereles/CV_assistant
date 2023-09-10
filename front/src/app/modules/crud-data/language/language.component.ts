@@ -43,6 +43,7 @@ export class LanguageComponent implements OnInit {
    el lenguage y el level.*/
   languageGet() {
     this._languageService.getLanguages(this.dataUser.userId).subscribe((languagesList: Language[]) => {
+      console.log(languagesList)
       this.languages = languagesList;
     })
   }
