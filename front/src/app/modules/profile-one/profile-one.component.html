@@ -1,0 +1,99 @@
+<body>
+    
+
+<div class="button">
+    <button (click)="downloadPDF()" mat-raised-button color="primary">descargar</button>
+</div>
+<div class="profile-2" id="profile-1">
+    <div class="body-izq">
+        <div class="item-foto">
+            <img src="../../../assets/Imagenes/foto3.jpeg" alt="imagen">
+        </div>
+        <div class="sobre-mi">
+            <h1>SOBRE MI</h1>
+            <h4>Soy un muchacho de barrio, que no tiene horario cuando hay que cantar. Soy uno mas de la esquina, de esa barra querida que no voy a olviar, soy un muchacho de barrio y aunque pasen los años nunca me olvidare, que mi escuela fue la calle y que en la vida pierda o gane yo te lo juro por ésta, que yo nunca cambiare </h4>
+        </div>
+        <div style="margin-left: 2em;">
+            <h1>EDUCACION</h1>
+            <div class="formacion">
+                <ul>
+                <li *ngFor="let formation of userData.formations">
+                    <h4 style="font-weight: 400; margin-bottom: 0">{{formation.institute}}</h4>
+                    <h4 style="font-weight: 400M; margin-bottom: 0;">{{formation.title}}</h4>
+                    <h6 style="margin-bottom: 0;">{{formation.FormationStatus?.status}} {{formation.endDate}}</h6>                   
+                </li>
+                </ul>
+            </div>
+        </div>
+        <div class="idiomas">
+            <div>
+                <h1>IDIOMAS</h1>
+            </div>
+            <div>
+                <ul>
+                    <li *ngFor="let language of userData.languages">
+                        <h4>{{language.language}} Nivel: {{language.level}}</h4>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="body-der">        
+        <div class="datoUser">
+            <h1 class="nombre">{{userData.userName}}<br>{{userData.lastName}}</h1>
+            <br>
+            <div style="display: flex;">
+            <mat-icon> call</mat-icon>
+            <h6 style="margin: 4px; font-weight: 500; font-size: larger;">3513554720</h6>
+            </div>
+            <div style="display: flex;">
+                <mat-icon> email</mat-icon>
+                <h6 style="margin: 4px; font-weight: 500; font-size: larger;">marianoStock@gmail.com</h6>
+            </div>
+            <div style="display: flex;">
+                <mat-icon>room</mat-icon>
+                <h6 style="margin: 4px; font-weight: 500; font-size: larger;">Av colon 1540</h6>
+            </div>
+        </div>
+        <div class="experiencia">
+            <h1 style="margin-bottom: 0; margin-left: 1em;">EXPERIENCIA</h1>            
+        </div>
+        <div class="contenido-experiencia">
+            <ul>
+                <li *ngFor="let experience of userData.experiences">
+                    <h4 style="font-weight: 700; margin-bottom: 0;">{{experience.company}}  -  {{experience.Country?.country}}</h4>
+                    <h5 style="text-transform: uppercase;font-weight: 400; margin-bottom: 0;"> {{experience.position}}          (  {{experience.startDate}}    |    {{experience.endDate}}  )</h5>   
+                    <div>
+                        <h4>Descripcion:</h4>
+                        <h5>{{experience.description}}</h5>
+                    </div>                    
+                </li>
+            </ul>
+        </div>              
+        <div class="skills">
+            <h1 style="margin-bottom: 0; margin-left: 1em;">HABILIDADES</h1>                  
+        </div>
+        <div style="margin: 2em; margin-right: 30%">
+            <h4>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit corporis similique temporibus, fugiat facilis qui fuga doloremque magnam eaque repellat eveniet, atque ipsa dolore suscipit consectetur hic accusantium modi expedita.</h4>
+        </div>      
+        <div class="referencias">
+            <h1 style="margin-bottom: 0; margin-left: 1em;">REFERENCIAS</h1>
+        </div>
+        <div class="contenido-referencia">
+            <ul>
+                <li *ngFor="let reference of userData.references">
+                    <h2>{{reference.name}} {{reference.lastName}}</h2>
+                    <div style="display: flex;">
+                        <mat-icon> call</mat-icon>
+                        <h6 style="margin: 4px; font-weight: 500; font-size: larger;">{{reference.phone}}</h6>
+                        </div>
+                        <div style="display: flex;">
+                            <mat-icon> email</mat-icon>
+                            <h6 style="margin: 4px; font-weight: 500; font-size: larger;">{{reference.email}}</h6>
+                        </div>                  
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body> 

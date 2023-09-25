@@ -26,6 +26,7 @@
     "dexie": "^3.2.4",
     "jquery": "^3.7.0",
     "jwt-decode": "^3.1.2",
+    "ngx-toastr": "^15.2.2",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
@@ -35,6 +36,7 @@
     "@angular/cli": "~14.2.11",
     "@angular/compiler-cli": "^14.2.0",
     "@types/jasmine": "~4.0.0",
+    "@types/jspdf": "^2.0.0",
     "angular-cli-ghpages": "^1.0.7",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",

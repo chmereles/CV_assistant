@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.body{
+    background-color: #fcfafa;
+    color: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: flexbox;
+    height: 100%;
+    width: 100%;
+}
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3em;
+    }
+
+.profile-2{
+    width: 200mm;
+    height: 277mm;
+    margin: 15mm;  
+    border: 0.5px solid #000;
+    margin:auto;
+    font-size: 10px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;    
+}
+img{
+    width: 100%;
+}
+.body-izq{    
+    width: 35%;
+    background-color: rgb(58, 83, 134);
+    color: #eeee;
+    overflow: auto;
+    
+}
+.body-der{
+    
+    width: 65%;
+    overflow: auto;
+}
+.body-izq > .item-foto{
+    width: 100%;
+    height: 25%;
+}
+.body-izq > .sobre-mi{
+    margin: 2em;
+    height: 35%;
+    border-bottom: solid #fcfafa 1px;
+}
+.body-izq > .formacion{
+    display: contents;
+    justify-content: center;
+    height: 40%;
+}
+.body-der > .datoUser{
+    display: flex;
+    flex-direction: column;    
+    margin-left: 4em;
+    margin-top: 4em;
+    text-transform: uppercase;    
+    color: rgb(58, 83, 134);        
+}
+.body-der > .datoUser .nombre{
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1;
+    width: 100%;
+    align-items: center;    
+}
+.body-der > .experiencia{
+    border-bottom: solid rgb(58, 83, 134) 6px;
+    display: flex;
+    margin-right: 30%;
+    margin-top: 5em;
+    line-height: 1;   
+}
+.contenido-experiencia{
+    margin: 2em;
+    margin-right: 30%;
+}
+.formacion{
+    border-bottom: solid 1px #eee;
+    margin-right: 2em;
+}
+
+.formacion li{
+    margin-top: 2em;
+    margin-left: 0;
+    margin-bottom: 2em;
+        
+}
+.idiomas{
+    margin: 2em;
+}
+.skills{
+    border-bottom: solid rgb(58, 83, 134) 6px;
+    display: flex;
+    margin-right: 30%;
+    margin-top: 5em;
+    line-height: 1;   
+}
+.referencias{
+    border-bottom: solid rgb(58, 83, 134) 6px;
+    display: flex;
+    margin-right: 30%;
+    margin-top: 5em;
+    line-height: 1;   
+}
+.contenido-referencia{
+    margin: 2em;
+}
+
