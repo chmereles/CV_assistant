@@ -19,6 +19,21 @@ import { Skill } from '../../interfaces/skill.interface';
 })
 export class UserDataService {
 
+  newUser:boolean = false;
+
+  /* profileId que se escribe desde el servicio de login */
+  profileId:number = 0; 
+  /* userId que se escribe desde el servicio de login */
+  userId: number = 0;
+
+  companies: string[] = [];
+
+  userName = "" || localStorage.getItem('userName');
+
+  lastName = "" || localStorage.getItem('lastName');
+
+  urlPicture = "";
+
   constructor(
     private _experience: ExperiencesService,
     private _formations: FormationsService,
@@ -79,7 +94,7 @@ export class UserDataService {
     const token = localStorage.getItem('accessToken');
     if (token) {
       const tokenData = jwtDecode<Token>(token);
-      console.log(tokenData);
+      // console.log(tokenData); //TODO ELIMINAR
       const currentTime = Math.floor(Date.now() / 1000);
       const expiration = tokenData.exp;
       this.userId = tokenData.id;
@@ -89,17 +104,6 @@ export class UserDataService {
     return false
   }
 
-  newUser:boolean = false;
 
-  /* profileId que se escribe desde el servicio de login */
-  profileId:number = 0; 
-  /* userId que se escribe desde el servicio de login */
-  userId: number = 0;
-
-  companies: string[] = [];
-
-  userName = "" || localStorage.getItem('userName');
-
-  lastName = "" || localStorage.getItem('lastName');
 
 }
