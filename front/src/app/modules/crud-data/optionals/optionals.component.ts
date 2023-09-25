@@ -10,6 +10,8 @@ import { MaritalsService } from 'src/app/core/services/maritals.service';
 import { OptionalsService } from 'src/app/core/services/optionals.service';
 import { NavBarService } from 'src/app/core/services/toolServices/nav-bar.service';
 import { UserDataService } from 'src/app/core/services/toolServices/userData.service';
+import { ToastrService } from 'ngx-toastr';
+import { FormChangesService } from 'src/app/core/services/toolServices/form-changes.service';
 
 @Component({
   selector: 'app-optionals',
@@ -27,9 +29,11 @@ export class OptionalsComponent implements OnInit {
     private _maritalsService: MaritalsService,
     private _genderServices: GenderService,
     private _optionalsService: OptionalsService,
-    public userData: UserDataService,
     private fb: FormBuilder,
-    public views: NavBarService
+    private _formChangeService: FormChangesService,
+    public userData: UserDataService,
+    public views: NavBarService,
+    public toastr: ToastrService
   ) {
     this.optionalsForm = this.fb.group({
       maritalId: ['', Validators.required],
@@ -46,6 +50,9 @@ export class OptionalsComponent implements OnInit {
       address: [''],
       zipCode: [''],
     });
+
+    this._formChangeService.originalValues = this.optionalsForm.value;
+    this._formChangeService.checkFormChanges(this.optionalsForm);
   }
 
   ngOnInit(): void {
@@ -111,8 +118,9 @@ export class OptionalsComponent implements OnInit {
 
     this._optionalsService.addOptionals(newOptionals).subscribe((optional) => {
       this.userData.optionals.push(optional);
+      this.toastr.success('Se agregaron nuevos opcionales', 'OPCIONALES');
     });
-    
+
     this.optionalsForm.reset();
   }
 
@@ -156,10 +164,11 @@ export class OptionalsComponent implements OnInit {
       address: this.optionalsForm.get('address')?.value,
       zipCode: this.optionalsForm.get('zipCode')?.value,
       profileId: this.userData.profileId
-    } 
+    }
 
     this._optionalsService.updateOptionals(this.optionalId, newDataOptional).subscribe(() => {
       this.userData.getMyOptionals();
+      this.toastr.success('Se actualizaron los opcionales', 'OPCIONALES');
     });
 
     this.optionalsForm.reset();
@@ -174,6 +183,7 @@ export class OptionalsComponent implements OnInit {
     const elementId = Number((this.userData.optionals[index]).id)
     this._optionalsService.deleteOptional(elementId).subscribe(() => {
       this.userData.optionals.splice(index, 1);
+      this.toastr.error('Se eliminaron los opcionales');
     });
   }
 }
