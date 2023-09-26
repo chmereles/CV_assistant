@@ -23,8 +23,8 @@ justify-content: center;
 .foto{    
     width: 17em; /* Ancho del contenedor */
     height: 17em; /* Alto del contenedor */
-    border: 10px solid yellow; /* Borde amarillo */
-    border-radius: 50%; /* Forma de círculo */
+    border: 20px solid yellow; /* Borde amarillo */
+    border-radius: 50% 0% 50% 50% ; /* Forma de círculo */
     overflow: hidden; /* Oculta lo que se sale del círculo */
     display: flex; /* Utiliza flexbox para centrar vertical y horizontalmente */
     justify-content: center; /* Centra horizontalmente */
