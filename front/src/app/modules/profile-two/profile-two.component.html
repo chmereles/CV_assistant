@@ -30,6 +30,11 @@
                             <h4>{{language.language}} Nivel: {{language.level}}</h4>
                         </li>
                     </ul>
+                    <ul>
+                        <li *ngFor="let skill of userData.skills">
+                            <h4 style="margin: 0;">{{ skill.skill }} Nivel: {{skill.level}}</h4>
+                        </li>
+                    </ul>
                 </div>
                 <div class="educacion">
                     <h3>· REFERENCIAS</h3>
@@ -42,7 +47,7 @@
                     </ul>
                 </div>
                 <div class="educacion">
-                    <h3>contacto</h3>
+                    <h3>· contacto</h3>
                 </div>
                 <div class="contenido">                   
                     <h4 style="display: flex;flex-wrap: initial;"><mat-icon>phone</mat-icon>351-3554720</h4>
@@ -54,8 +59,7 @@
         <div class="conteinter-der">
             <div class="nombre">
                 <h1 class="nombre">{{userData.userName}}<br>{{userData.lastName}}</h1>
-            </div>
-            <div class="profesion"></div>
+            </div>            
             <div class="sobre-mi">
                 <h5 style="margin: 2em">Soy un muchacho de barrio, que no tiene horario cuando hay que cantar. Soy uno mas de la esquina, de esa barra querida que no voy a olviar, soy un muchacho de barrio y aunque pasen los años nunca me olvidare, que mi escuela fue la calle y que en la vida pierda o gane yo te lo juro por ésta, que yo nunca cambiare </h5>
             </div>

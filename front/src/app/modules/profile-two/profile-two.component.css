@@ -21,20 +21,20 @@ justify-content: center;
 
 
 .foto{    
-    width: 17em; /* Ancho del contenedor */
-    height: 17em; /* Alto del contenedor */
-    border: 20px solid yellow; /* Borde amarillo */
-    border-radius: 50% 0% 50% 50% ; /* Forma de círculo */
-    overflow: hidden; /* Oculta lo que se sale del círculo */
-    display: flex; /* Utiliza flexbox para centrar vertical y horizontalmente */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
+    width: 17em; 
+    height: 17em;
+    border: 20px solid yellow;
+    border-radius: 50% 0% 50% 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 5em;
 }
 .foto img{
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ajusta la imagen al círculo */
+    object-fit: cover;
 }
 .educacion{
     display: flex;
@@ -55,7 +55,8 @@ h3{
 }
 .contenido{
     line-height: 1;
-    margin: 2em;
+    margin-left: 2em;
+    
 }
 .contenido li {
     margin-top: 2em;
