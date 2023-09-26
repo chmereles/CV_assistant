@@ -11,7 +11,7 @@ import { ExperiencesService } from 'src/app/core/services/experiences.service';
 import { NavBarService } from 'src/app/core/services/toolServices/nav-bar.service';
 import { UserDataService } from 'src/app/core/services/toolServices/userData.service';
 import { ToastrService } from 'ngx-toastr';
-import { FormChangesService } from 'src/app/core/services/toolServices/form-changes.service';
+
 
 @Component({
   selector: 'app-experiences',
@@ -29,7 +29,6 @@ export class ExperiencesComponent implements OnInit {
     private _experienceStatusServices: ExperiencesStatusService,
     private _countriesService: CountriesService,
     private _experiencesService: ExperiencesService,
-    private _formChangeService: FormChangesService,
     private fb: FormBuilder,
     public userData: UserDataService,
     public views: NavBarService,
@@ -44,15 +43,12 @@ export class ExperiencesComponent implements OnInit {
       countriesId: '',
       startDate: '',
       endDate: null,
-    })
-
-    this._formChangeService.originalValues = this.experienceForm.value;
-    this._formChangeService.checkFormChanges(this.experienceForm);
+    });
   }
 
   ngOnInit(): void {
 
-    this.userData.getExperience();
+    this.userData.checkForm = false;
 
     this.getTypes();
 
@@ -60,7 +56,10 @@ export class ExperiencesComponent implements OnInit {
 
     this.getCountries();
 
-    this.views.title = "Experiencias";
+    this.userData.getExperience();
+
+    this.views.changeTitle("Experiencias");
+
   }
 
   endDateShow(): boolean {
@@ -111,8 +110,6 @@ export class ExperiencesComponent implements OnInit {
       this.userData.experiences.push(experience);
       this.toastr.success('Se agrego un nueva experiencia', 'EXPERIENCIA');
     });
-
-
 
     this.experienceForm.reset();
   }
@@ -173,3 +170,4 @@ export class ExperiencesComponent implements OnInit {
   }
 
 }
+
