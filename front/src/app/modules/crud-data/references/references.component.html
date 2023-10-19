@@ -15,14 +15,14 @@
         (change)="userData.markForm(referenceForm)">
             <mat-form-field>
                 <mat-label for="name">Nombre:</mat-label>
-                <input matInput formControlName="name" type="text">
+                <input matInput formControlName="name" type="text" class="capitalize">
             </mat-form-field>
             <p class="error-form" *ngIf="referenceForm.controls['name'].errors?.['maxlength']">El maximo es de 45 caracteres</p>
             <br><p class="error-form" *ngIf="referenceForm.controls['name'].errors?.['pattern']">El nombre solo puede contener letras</p>
 
             <mat-form-field>
                 <mat-label for="lastName">Apellido:</mat-label>
-                <input matInput formControlName="lastName" type="text">
+                <input matInput formControlName="lastName" type="text" class="capitalize">
             </mat-form-field>
             <p class="error-form" *ngIf="referenceForm.controls['lastName'].errors?.['maxlength']">El maximo es de 45 caracteres</p>
             <br><p class="error-form" *ngIf="referenceForm.controls['lastName'].errors?.['pattern']">El apellido solo puede contener letras</p>
