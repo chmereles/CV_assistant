@@ -102,17 +102,21 @@ export class PersonalComponent implements OnInit {
       this.userService.uploadImage(this.imagen).subscribe((data) => {
         this.url = data;
         this.userData.urlPicture = this.url;
+        console.log("userId: ", this.userData.userId)
         this.imageDownload();
         this.userUpdate();
       })
     } else {
-      this.userUpdate()
+      this.userUpdate();
     }
   }
 
   imageDownload() {
-    return this.userData.downloadImage(this.userData.urlPicture, this.userData.userId).subscribe(() => {
-      this.userData.imageProfile = `${this.api.apiUrl}user/profile/profile${this.userData.userId}.jpeg`;
+    return this.userData.downloadImage(this.userData.urlPicture, this.userData.userId).subscribe({
+      next: () => {
+        this.userData.imageProfile = `${this.api.apiUrl}user/profile/profile${this.userData.userId}.jpeg`;
+        console.log("Imagen: ", this.userData.imageProfile)
+      }
     });
   }
 
@@ -129,6 +133,7 @@ export class PersonalComponent implements OnInit {
     this.userService.updateUser(this.userData.userId, userUpdate).subscribe(() => {
       this.getUser()  
     })
+
   }
 
 }

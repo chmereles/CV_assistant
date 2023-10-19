@@ -3,8 +3,6 @@ import { Router} from '@angular/router';
 import { ApiService } from 'src/app/core/http/api.service';
 import { NavBarService } from 'src/app/core/services/toolServices/nav-bar.service';
 import { UserDataService } from 'src/app/core/services/toolServices/userData.service';
-import { UserService } from 'src/app/core/services/usuario.service';
-
 
 
 @Component({
@@ -47,6 +45,7 @@ export class HomeComponent implements OnInit {
   }
 
   imageDownload() {
+    console.log(this.userData.userId)
     return this.userData.downloadImage(this.userData.urlPicture, this.userData.userId).subscribe(() => {
       this.userData.imageProfile = `${this.api.apiUrl}user/profile/profile${this.userData.userId}.jpeg`;
     });
