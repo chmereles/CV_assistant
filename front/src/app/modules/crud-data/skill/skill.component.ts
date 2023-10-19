@@ -25,7 +25,8 @@ export class SkillComponent implements OnInit {
     public toastr: ToastrService
   ) {
     this.skillForm = this.fb.group({
-      skill: ['', [ Validators.maxLength(45), Validators.pattern('^[a-zA-Z ]*$')]],
+      //skill: ['', [ Validators.maxLength(45), Validators.pattern('^[a-zA-Z ]*$')]],
+      skill: ['', [ Validators.maxLength(45), Validators.pattern('[^0-9]*')]],
       level: ['']
     });
 

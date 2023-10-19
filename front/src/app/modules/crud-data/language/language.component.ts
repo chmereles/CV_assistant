@@ -26,7 +26,7 @@ export class LanguageComponent implements OnInit {
     public toastr: ToastrService
   ) {
     this.languageForm = this.fb.group({
-      language: ['', [ Validators.pattern('^[a-zA-Z ]*$'), Validators.maxLength(45) ]],
+      language: ['', [ Validators.pattern('[^0-9]*'), Validators.maxLength(45) ]],
       level: [''],
     })
 
