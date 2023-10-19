@@ -106,13 +106,15 @@ export class PersonalComponent implements OnInit {
         this.userUpdate();
       })
     } else {
-      this.userUpdate()
+      this.userUpdate();
     }
   }
 
   imageDownload() {
-    return this.userData.downloadImage(this.userData.urlPicture, this.userData.userId).subscribe(() => {
-      this.userData.imageProfile = `${this.api.apiUrl}user/profile/profile${this.userData.userId}.jpeg`;
+    return this.userData.downloadImage(this.userData.urlPicture, this.userData.userId).subscribe({
+      next: () => {
+        this.userData.imageProfile = `${this.api.apiUrl}user/profile/profile${this.userData.userId}.jpeg`;
+      }
     });
   }
 
@@ -129,6 +131,7 @@ export class PersonalComponent implements OnInit {
     this.userService.updateUser(this.userData.userId, userUpdate).subscribe(() => {
       this.getUser()  
     })
+
   }
 
 }

@@ -28,8 +28,8 @@ export class ReferencesComponent implements OnInit {
     public toastr: ToastrService
   ) {
     this.referenceForm = this.fb.group({
-      name: ['', [ Validators.maxLength(45), Validators.pattern('^[a-zA-Z ]*$') ]],
-      lastName: ['', [ Validators.maxLength(45), Validators.pattern('^[a-zA-Z ]*$') ]],
+      name: ['', [ Validators.maxLength(45), Validators.pattern('[^0-9]*') ]],
+      lastName: ['', [ Validators.maxLength(45), Validators.pattern('[^0-9]*') ]],
       email: ['', [ Validators.email ]],
       phone: ['', [ Validators.maxLength(10), Validators.pattern('^[0-9]*$') ]],
       company: [''],
