@@ -32,8 +32,8 @@ export class PersonalComponent implements OnInit {
     public toastr: ToastrService
   ) {
     this.personalForm = this.fb.group({
-      name: ['', [ Validators.maxLength(20), Validators.pattern('[^0-9]*')]],
-      lastName: ['', [ Validators.maxLength(20), Validators.pattern('[^0-9]*')]],
+      name: ['', [ Validators.maxLength(20), Validators.pattern('^[a-zA-Z ]*$')]],
+      lastName: ['', [ Validators.maxLength(20), Validators.pattern('^[a-zA-Z ]*$')]],
       email: ['', [ Validators.email ]],
       phone: ['', [ Validators.maxLength(10), Validators.pattern('^[0-9]*$')]],
       bornDate: null,
@@ -102,7 +102,6 @@ export class PersonalComponent implements OnInit {
       this.userService.uploadImage(this.imagen).subscribe((data) => {
         this.url = data;
         this.userData.urlPicture = this.url;
-        console.log("userId: ", this.userData.userId)
         this.imageDownload();
         this.userUpdate();
       })
@@ -115,7 +114,6 @@ export class PersonalComponent implements OnInit {
     return this.userData.downloadImage(this.userData.urlPicture, this.userData.userId).subscribe({
       next: () => {
         this.userData.imageProfile = `${this.api.apiUrl}user/profile/profile${this.userData.userId}.jpeg`;
-        console.log("Imagen: ", this.userData.imageProfile)
       }
     });
   }
